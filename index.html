@@ -9,7 +9,7 @@
 content="width=device-width, initial-scale=1.0">
 
 <title>
-AI Solar System Learning App
+AI Interactive Learning Platform
 </title>
 
 <link rel="stylesheet" href="style.css">
@@ -20,26 +20,34 @@ AI Solar System Learning App
 
 <body>
 
-<h1>AI Solar System Learning App</h1>
+<h1>AI Interactive Learning Platform</h1>
 
 <div class="info">
 
 <h2>
-AI Powered 3D Solar System
+AI Powered 3D Education
 </h2>
 
 <p>
-Explore planets with interactive 3D animation,
-AI explanations, and quizzes.
+Explore Solar System, Physics Lab,
+and Biology Lab with interactive
+3D animations and quizzes.
 </p>
 
 </div>
 
+<!-- STATS -->
+
 <div class="stats">
 
 <div class="card">
-<h2>9</h2>
-<p>Planets</p>
+<h2>3</h2>
+<p>Labs</p>
+</div>
+
+<div class="card">
+<h2>15+</h2>
+<p>Modules</p>
 </div>
 
 <div class="card">
@@ -52,15 +60,12 @@ AI explanations, and quizzes.
 <p>Learning</p>
 </div>
 
-<div class="card">
-<h2>10+</h2>
-<p>Quizzes</p>
 </div>
 
-</div>
+<!-- MAIN MODULES -->
 
 <h2 class="module-title">
-Choose Planet Module
+Choose Learning Lab
 </h2>
 
 <div class="modules">
@@ -68,98 +73,239 @@ Choose Planet Module
 <div class="module-card"
 onclick="showPlanet('sun')">
 
-<h3>Sun</h3>
-<p>Center of solar system.</p>
+<h3>🌌 Solar System Lab</h3>
 
+<p>
+Explore planets with 3D animation
+and quizzes.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showPhysics()">
+
+<h3>⚛️ Physics Lab</h3>
+
+<p>
+Gravity, pendulum,
+orbit simulation and quiz.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showBiology()">
+
+<h3>🧬 Biology Lab</h3>
+
+<p>
+3D heart, brain, lungs,
+cells and blood flow.
+</p>
+
+</div>
+
+</div>
+
+<!-- SOLAR SYSTEM -->
+
+<h2 class="module-title">
+🌌 Solar System Lab
+</h2>
+
+<div class="modules">
+
+<div class="module-card"
+onclick="showPlanet('sun')">
+<h3>Sun</h3>
 </div>
 
 <div class="module-card"
 onclick="showPlanet('mercury')">
-
 <h3>Mercury</h3>
-<p>Closest planet to the Sun.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('venus')">
-
 <h3>Venus</h3>
-<p>Hottest planet in solar system.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('earth')">
-
 <h3>Earth</h3>
-<p>Planet that supports life.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('mars')">
-
 <h3>Mars</h3>
-<p>Known as Red Planet.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('jupiter')">
-
 <h3>Jupiter</h3>
-<p>Largest planet in solar system.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('saturn')">
-
 <h3>Saturn</h3>
-<p>Planet with beautiful rings.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('uranus')">
-
 <h3>Uranus</h3>
-<p>Ice giant planet.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('neptune')">
-
 <h3>Neptune</h3>
-<p>Farthest planet.</p>
-
 </div>
 
 <div class="module-card"
 onclick="showPlanet('pluto')">
-
 <h3>Pluto</h3>
-<p>Dwarf planet.</p>
+</div>
+
+</div>
+
+<!-- PHYSICS LAB -->
+
+<h2 class="module-title">
+⚛️ Physics Lab
+</h2>
+
+<div class="modules">
+
+<div class="module-card"
+onclick="showPhysics()">
+
+<h3>Gravity Simulation</h3>
+
+<p>
+Visualize gravity and motion.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showPhysics()">
+
+<h3>Pendulum</h3>
+
+<p>
+Interactive pendulum simulation.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showPhysics()">
+
+<h3>Orbit Simulation</h3>
+
+<p>
+Planet orbit simulation.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showPhysics()">
+
+<h3>Physics Quiz</h3>
+
+<p>
+Practice physics concepts.
+</p>
 
 </div>
 
 </div>
+
+<!-- BIOLOGY LAB -->
+
+<h2 class="module-title">
+🧬 Biology Lab
+</h2>
+
+<div class="modules">
+
+<div class="module-card"
+onclick="showBiology()">
+
+<h3>❤️ Heart Beat</h3>
+
+<p>
+3D heart beat animation.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showBiology()">
+
+<h3>🧠 Brain</h3>
+
+<p>
+Explore brain structure.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showBiology()">
+
+<h3>🫁 Lungs</h3>
+
+<p>
+Breathing animation.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showBiology()">
+
+<h3>🩸 Blood Flow</h3>
+
+<p>
+Blood circulation animation.
+</p>
+
+</div>
+
+<div class="module-card"
+onclick="showBiology()">
+
+<h3>🔬 Cells</h3>
+
+<p>
+Explore 3D cells.
+</p>
+
+</div>
+
+</div>
+
+<!-- 3D SCENE -->
 
 <div id="scene-container"></div>
+
+<!-- INFO -->
 
 <div class="info">
 
 <h2 id="planet-title">
-Planet
+Learning Module
 </h2>
 
 <p id="planet-info">
-Planet Information
+Select a module to explore.
 </p>
 
 </div>
+
+<!-- QUIZ -->
 
 <div class="quiz">
 
