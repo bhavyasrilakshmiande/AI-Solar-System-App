@@ -322,32 +322,35 @@ function showPhysics(type){
 
 clearScene();
 
-createSphere(
-2,
-0x00ffff
-);
-
-let title = "";
-let info = "";
+let geometry;
+let material;
 
 if(type === "gravity"){
-title = "Gravity Simulation";
-info = "Gravity pulls objects downward.";
-}
 
-if(type === "pendulum"){
-title = "Pendulum Simulation";
-info = "Pendulum swings with motion.";
-}
+geometry =
+new THREE.SphereGeometry(
+2,
+64,
+64
+);
 
-if(type === "orbit"){
-title = "Orbit Simulation";
-info = "Objects move around planets.";
-}
+material =
+new THREE.MeshStandardMaterial({
+color:0x00ffff,
+wireframe:true
+});
+
+currentObject =
+new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(currentObject);
 
 updateQuiz(
-title,
-info,
+"Gravity Simulation",
+"Gravity pulls objects downward.",
 "What force pulls objects down?",
 ["Gravity","Light"],
 0
@@ -355,11 +358,85 @@ info,
 
 }
 
+if(type === "pendulum"){
+
+geometry =
+new THREE.ConeGeometry(
+1,
+3,
+32
+);
+
+material =
+new THREE.MeshStandardMaterial({
+color:0xffaa00,
+wireframe:true
+});
+
+currentObject =
+new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Pendulum",
+"Pendulum swings back and forth.",
+"What motion does pendulum show?",
+["Swing","Jump"],
+0
+);
+
+}
+
+if(type === "orbit"){
+
+geometry =
+new THREE.TorusGeometry(
+2,
+0.5,
+32,
+100
+);
+
+material =
+new THREE.MeshStandardMaterial({
+color:0x00ff99,
+wireframe:true
+});
+
+currentObject =
+new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Orbit Simulation",
+"Objects move around planets in orbit.",
+"What do planets follow?",
+["Orbit","Road"],
+0
+);
+
+}
+
+}
+
 function showBiology(type){
 
 clearScene();
 
-const geometry =
+let geometry;
+let material;
+
+if(type === "heart"){
+
+geometry =
 new THREE.TorusKnotGeometry(
 1.5,
 0.5,
@@ -367,7 +444,7 @@ new THREE.TorusKnotGeometry(
 16
 );
 
-const material =
+material =
 new THREE.MeshStandardMaterial({
 color:0xff0055,
 wireframe:true
@@ -381,36 +458,112 @@ material
 
 scene.add(currentObject);
 
-let title = "";
-let info = "";
-
-if(type === "heart"){
-title = "Heart";
-info = "Heart pumps blood.";
-}
-
-if(type === "brain"){
-title = "Brain";
-info = "Brain controls body.";
-}
-
-if(type === "lungs"){
-title = "Lungs";
-info = "Lungs help breathing.";
-}
-
-if(type === "cells"){
-title = "Cells";
-info = "Cells are basic unit of life.";
-}
-
 updateQuiz(
-title,
-info,
+"Heart",
+"Heart pumps blood.",
 "Which organ pumps blood?",
 ["Heart","Liver"],
 0
 );
+
+}
+
+if(type === "brain"){
+
+geometry =
+new THREE.IcosahedronGeometry(
+2,
+1
+);
+
+material =
+new THREE.MeshStandardMaterial({
+color:0xff99cc,
+wireframe:true
+});
+
+currentObject =
+new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Brain",
+"Brain controls body functions.",
+"Which organ controls body?",
+["Brain","Lungs"],
+0
+);
+
+}
+
+if(type === "lungs"){
+
+geometry =
+new THREE.CylinderGeometry(
+1,
+1,
+3,
+32
+);
+
+material =
+new THREE.MeshStandardMaterial({
+color:0xff6666,
+wireframe:true
+});
+
+currentObject =
+new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Lungs",
+"Lungs help breathing.",
+"Which organ helps breathing?",
+["Lungs","Heart"],
+0
+);
+
+}
+
+if(type === "cells"){
+
+geometry =
+new THREE.OctahedronGeometry(
+2
+);
+
+material =
+new THREE.MeshStandardMaterial({
+color:0x66ffcc,
+wireframe:true
+});
+
+currentObject =
+new THREE.Mesh(
+geometry,
+material
+);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Cells",
+"Cells are basic unit of life.",
+"What is basic unit of life?",
+["Cells","Bones"],
+0
+);
+
+}
 
 }
 
