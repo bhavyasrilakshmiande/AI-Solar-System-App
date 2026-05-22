@@ -20,7 +20,13 @@ AI Interactive Learning Platform
 
 <body>
 
-<h1>AI Interactive Learning Platform</h1>
+<!-- HOME PAGE -->
+
+<div id="home-page">
+
+<h1>
+AI Interactive Learning Platform
+</h1>
 
 <div class="info">
 
@@ -29,9 +35,11 @@ AI Powered 3D Education
 </h2>
 
 <p>
-Explore Solar System, Physics Lab,
-and Biology Lab with interactive
-3D animations and quizzes.
+Explore Solar System,
+Physics Lab,
+and Biology Lab with
+interactive 3D animations
+and quizzes.
 </p>
 
 </div>
@@ -62,7 +70,7 @@ and Biology Lab with interactive
 
 </div>
 
-<!-- MAIN MODULES -->
+<!-- LAB CARDS -->
 
 <h2 class="module-title">
 Choose Learning Lab
@@ -71,7 +79,7 @@ Choose Learning Lab
 <div class="modules">
 
 <div class="module-card"
-onclick="showPlanet('sun')">
+onclick="openSolarSystem()">
 
 <h3>🌌 Solar System Lab</h3>
 
@@ -83,19 +91,19 @@ and quizzes.
 </div>
 
 <div class="module-card"
-onclick="showPhysics()">
+onclick="openPhysicsLab()">
 
 <h3>⚛️ Physics Lab</h3>
 
 <p>
 Gravity, pendulum,
-orbit simulation and quiz.
+orbit simulation and quizzes.
 </p>
 
 </div>
 
 <div class="module-card"
-onclick="showBiology()">
+onclick="openBiologyLab()">
 
 <h3>🧬 Biology Lab</h3>
 
@@ -108,7 +116,18 @@ cells and blood flow.
 
 </div>
 
-<!-- SOLAR SYSTEM -->
+</div>
+
+<!-- SOLAR SYSTEM PAGE -->
+
+<div id="solar-page" class="hidden">
+
+<button class="back-btn"
+onclick="goHome()">
+
+⬅ Back
+
+</button>
 
 <h2 class="module-title">
 🌌 Solar System Lab
@@ -168,7 +187,18 @@ onclick="showPlanet('pluto')">
 
 </div>
 
-<!-- PHYSICS LAB -->
+</div>
+
+<!-- PHYSICS PAGE -->
+
+<div id="physics-page" class="hidden">
+
+<button class="back-btn"
+onclick="goHome()">
+
+⬅ Back
+
+</button>
 
 <h2 class="module-title">
 ⚛️ Physics Lab
@@ -177,52 +207,40 @@ onclick="showPlanet('pluto')">
 <div class="modules">
 
 <div class="module-card"
-onclick="showPhysics()">
+onclick="showPhysics('gravity')">
 
 <h3>Gravity Simulation</h3>
 
-<p>
-Visualize gravity and motion.
-</p>
-
 </div>
 
 <div class="module-card"
-onclick="showPhysics()">
+onclick="showPhysics('pendulum')">
 
 <h3>Pendulum</h3>
 
-<p>
-Interactive pendulum simulation.
-</p>
-
 </div>
 
 <div class="module-card"
-onclick="showPhysics()">
+onclick="showPhysics('orbit')">
 
 <h3>Orbit Simulation</h3>
 
-<p>
-Planet orbit simulation.
-</p>
-
 </div>
-
-<div class="module-card"
-onclick="showPhysics()">
-
-<h3>Physics Quiz</h3>
-
-<p>
-Practice physics concepts.
-</p>
 
 </div>
 
 </div>
 
-<!-- BIOLOGY LAB -->
+<!-- BIOLOGY PAGE -->
+
+<div id="biology-page" class="hidden">
+
+<button class="back-btn"
+onclick="goHome()">
+
+⬅ Back
+
+</button>
 
 <h2 class="module-title">
 🧬 Biology Lab
@@ -231,85 +249,68 @@ Practice physics concepts.
 <div class="modules">
 
 <div class="module-card"
-onclick="showBiology()">
+onclick="showBiology('heart')">
 
-<h3>❤️ Heart Beat</h3>
-
-<p>
-3D heart beat animation.
-</p>
+<h3>❤️ Heart</h3>
 
 </div>
 
 <div class="module-card"
-onclick="showBiology()">
+onclick="showBiology('brain')">
 
 <h3>🧠 Brain</h3>
 
-<p>
-Explore brain structure.
-</p>
-
 </div>
 
 <div class="module-card"
-onclick="showBiology()">
+onclick="showBiology('lungs')">
 
 <h3>🫁 Lungs</h3>
 
-<p>
-Breathing animation.
-</p>
-
 </div>
 
 <div class="module-card"
-onclick="showBiology()">
-
-<h3>🩸 Blood Flow</h3>
-
-<p>
-Blood circulation animation.
-</p>
-
-</div>
-
-<div class="module-card"
-onclick="showBiology()">
+onclick="showBiology('cells')">
 
 <h3>🔬 Cells</h3>
 
-<p>
-Explore 3D cells.
-</p>
-
 </div>
 
 </div>
 
-<!-- 3D SCENE -->
+</div>
+
+<!-- 3D VIEWER -->
+
+<div id="viewer-section"
+class="hidden">
+
+<button class="back-btn"
+onclick="closeViewer()">
+
+⬅ Back
+
+</button>
 
 <div id="scene-container"></div>
-
-<!-- INFO -->
 
 <div class="info">
 
 <h2 id="planet-title">
-Learning Module
+Module
 </h2>
 
 <p id="planet-info">
-Select a module to explore.
+Information
 </p>
 
 </div>
 
-<!-- QUIZ -->
-
 <div class="quiz">
 
-<h2>Quiz</h2>
+<h2>
+Quiz
+</h2>
 
 <p id="question"></p>
 
@@ -322,6 +323,8 @@ Option 2
 </button>
 
 <p id="result"></p>
+
+</div>
 
 </div>
 
