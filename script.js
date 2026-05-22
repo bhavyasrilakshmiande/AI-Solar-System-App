@@ -1,4 +1,3 @@
-
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(
@@ -28,6 +27,8 @@ new THREE.PointLight(0xffffff,2);
 light.position.set(10,10,10);
 
 scene.add(light);
+
+// ---------------- PAGES ----------------
 
 function hideAllPages(){
 
@@ -103,6 +104,8 @@ document.getElementById("viewer-section")
 
 }
 
+// ---------------- SCENE ----------------
+
 function clearScene(){
 
 if(currentObject){
@@ -147,6 +150,8 @@ document.getElementById("result")
 .innerHTML = "";
 
 }
+
+// ---------------- SOLAR SYSTEM ----------------
 
 function showPlanet(name){
 
@@ -228,6 +233,7 @@ material
 
 currentObject.add(planet);
 
+// SATURN RINGS
 if(name === "saturn"){
 
 const ringGeometry =
@@ -255,6 +261,7 @@ planet.add(ring);
 
 }
 
+// EARTH MOON ORBIT
 if(name === "earth"){
 
 const moonGeometry =
@@ -283,138 +290,51 @@ currentObject.add(orbitPlanet);
 
 scene.add(currentObject);
 
-const data = {
-
-sun:[
-"Sun",
-"Sun produces light and heat.",
-"What gives light to planets?",
-["Sun","Moon"],
-0
-],
-
-mercury:[
-"Mercury",
-"Closest planet to Sun.",
-"Closest planet?",
-["Mercury","Earth"],
-0
-],
-
-venus:[
-"Venus",
-"Hottest planet in solar system.",
-"Hottest planet?",
-["Venus","Mars"],
-0
-],
-
-earth:[
-"Earth",
-"Earth has moon orbit animation.",
-"Planet with life?",
-["Earth","Mars"],
-0
-],
-
-mars:[
-"Mars",
-"Mars is called Red Planet.",
-"Red planet?",
-["Mars","Venus"],
-0
-],
-
-jupiter:[
-"Jupiter",
-"Largest planet in solar system.",
-"Largest planet?",
-["Earth","Jupiter"],
-1
-],
-
-saturn:[
-"Saturn",
-"Saturn has giant rings.",
-"Planet with rings?",
-["Saturn","Mars"],
-0
-],
-
-uranus:[
-"Uranus",
-"Uranus is ice giant.",
-"Ice giant planet?",
-["Uranus","Earth"],
-0
-],
-
-neptune:[
-"Neptune",
-"Neptune is blue and cold.",
-"Blue planet?",
-["Neptune","Mars"],
-0
-],
-
-pluto:[
-"Pluto",
-"Pluto is dwarf planet.",
-"Dwarf planet?",
-["Pluto","Earth"],
-0
-]
-
-};
-
-const p = data[name];
-
 updateQuiz(
-p[0],
-p[1],
-p[2],
-p[3],
-p[4]
+name.toUpperCase(),
+"Interactive 3D " + name + " model.",
+"Select correct answer.",
+["Correct","Wrong"],
+0
 );
 
 }
+
+// ---------------- PHYSICS ----------------
 
 function showPhysics(type){
 
 clearScene();
 
+// GRAVITY
 if(type === "gravity"){
 
-const geometry =
-new THREE.SphereGeometry(
-2,
-64,
-64
-);
+const ball =
+new THREE.Mesh(
 
-const material =
+new THREE.SphereGeometry(1.5,64,64),
+
 new THREE.MeshStandardMaterial({
 color:0x00ffff
-});
+})
 
-currentObject =
-new THREE.Mesh(
-geometry,
-material
 );
+
+currentObject = ball;
 
 scene.add(currentObject);
 
 updateQuiz(
 "Gravity Simulation",
-"Gravity pulls objects downward.",
+"Object falling due to gravity.",
 "What force pulls objects down?",
-["Gravity","Light"],
+["Gravity","Wind"],
 0
 );
 
 }
 
+// PENDULUM
 if(type === "pendulum"){
 
 currentObject =
@@ -423,11 +343,7 @@ new THREE.Group();
 const ball =
 new THREE.Mesh(
 
-new THREE.SphereGeometry(
-0.7,
-32,
-32
-),
+new THREE.SphereGeometry(0.7,32,32),
 
 new THREE.MeshStandardMaterial({
 color:0xffaa00
@@ -469,6 +385,7 @@ updateQuiz(
 
 }
 
+// ORBIT
 if(type === "orbit"){
 
 currentObject =
@@ -477,11 +394,7 @@ new THREE.Group();
 const sun =
 new THREE.Mesh(
 
-new THREE.SphereGeometry(
-1,
-32,
-32
-),
+new THREE.SphereGeometry(1,32,32),
 
 new THREE.MeshBasicMaterial({
 color:0xffff00
@@ -494,11 +407,7 @@ currentObject.add(sun);
 orbitPlanet =
 new THREE.Mesh(
 
-new THREE.SphereGeometry(
-0.5,
-32,
-32
-),
+new THREE.SphereGeometry(0.5,32,32),
 
 new THREE.MeshBasicMaterial({
 color:0x0000ff
@@ -524,29 +433,27 @@ updateQuiz(
 
 }
 
+// ---------------- BIOLOGY ----------------
+
 function showBiology(type){
 
 clearScene();
 
+// HEART
 if(type === "heart"){
 
-const geometry =
-new THREE.SphereGeometry(
-2,
-64,
-64
-);
+const heart =
+new THREE.Mesh(
 
-const material =
+new THREE.SphereGeometry(2,64,64),
+
 new THREE.MeshStandardMaterial({
 color:0xff0000
-});
+})
 
-currentObject =
-new THREE.Mesh(
-geometry,
-material
 );
+
+currentObject = heart;
 
 scene.add(currentObject);
 
@@ -560,30 +467,27 @@ updateQuiz(
 
 }
 
+// BRAIN
 if(type === "brain"){
 
-const geometry =
-new THREE.IcosahedronGeometry(
-2,
-3
-);
+const brain =
+new THREE.Mesh(
 
-const material =
+new THREE.IcosahedronGeometry(2,3),
+
 new THREE.MeshStandardMaterial({
 color:0xff99cc
-});
+})
 
-currentObject =
-new THREE.Mesh(
-geometry,
-material
 );
+
+currentObject = brain;
 
 scene.add(currentObject);
 
 updateQuiz(
 "Brain",
-"Brain controls the body.",
+"Brain controls body.",
 "Which organ controls body?",
 ["Brain","Lungs"],
 0
@@ -591,6 +495,7 @@ updateQuiz(
 
 }
 
+// LUNGS
 if(type === "lungs"){
 
 currentObject =
@@ -599,11 +504,7 @@ new THREE.Group();
 const lung1 =
 new THREE.Mesh(
 
-new THREE.SphereGeometry(
-1.2,
-32,
-32
-),
+new THREE.SphereGeometry(1.2,32,32),
 
 new THREE.MeshStandardMaterial({
 color:0xff6666
@@ -616,11 +517,7 @@ lung1.position.x = -1.2;
 const lung2 =
 new THREE.Mesh(
 
-new THREE.SphereGeometry(
-1.2,
-32,
-32
-),
+new THREE.SphereGeometry(1.2,32,32),
 
 new THREE.MeshStandardMaterial({
 color:0xff6666
@@ -646,26 +543,26 @@ updateQuiz(
 
 }
 
+// CELLS
 if(type === "cells"){
 
-const geometry =
+const cell =
+new THREE.Mesh(
+
 new THREE.TorusKnotGeometry(
 1.5,
 0.5,
 100,
 16
-);
+),
 
-const material =
 new THREE.MeshStandardMaterial({
 color:0x00ff99
-});
+})
 
-currentObject =
-new THREE.Mesh(
-geometry,
-material
 );
+
+currentObject = cell;
 
 scene.add(currentObject);
 
@@ -680,6 +577,8 @@ updateQuiz(
 }
 
 }
+
+// ---------------- QUIZ ----------------
 
 function checkAnswer(index){
 
@@ -699,23 +598,73 @@ result.innerHTML = "Wrong!";
 
 }
 
+// ---------------- ANIMATION ----------------
+
 function animate(){
 
 requestAnimationFrame(animate);
+
+const time = Date.now() * 0.002;
 
 if(currentObject){
 
 currentObject.rotation.y += 0.01;
 
+// PENDULUM SWING
+if(
+document.getElementById("planet-title")
+.innerHTML === "Pendulum"
+){
+
+currentObject.rotation.z =
+Math.sin(time) * 0.7;
+
 }
 
+// HEART BEAT
+if(
+document.getElementById("planet-title")
+.innerHTML === "Heart Beat"
+){
+
+const scale =
+1 + Math.sin(time * 4) * 0.1;
+
+currentObject.scale.set(
+scale,
+scale,
+scale
+);
+
+}
+
+// LUNGS BREATHING
+if(
+document.getElementById("planet-title")
+.innerHTML === "Lungs"
+){
+
+const breathe =
+1 + Math.sin(time * 2) * 0.15;
+
+currentObject.scale.set(
+breathe,
+breathe,
+breathe
+);
+
+}
+
+}
+
+// ORBIT ANIMATION
 if(orbitPlanet){
 
 orbitPlanet.position.x =
-Math.cos(Date.now()*0.001)*4;
+Math.cos(time) * 4;
 
 orbitPlanet.position.z =
-Math.sin(Date.now()*0.001)*4;
+Math.sin(time) * 4;
 
 }
 
