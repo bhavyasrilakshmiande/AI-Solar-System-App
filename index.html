@@ -1,224 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>AI Interactive Learning Platform</title>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-<style>
+<title>
+AI Interactive Learning Platform
+</title>
 
-body{
-    margin:0;
-    font-family:Arial;
-    background:#02051f;
-    color:white;
-    text-align:center;
-}
-
-/* HEADER */
-
-h1{
-    color:#19f0ff;
-    margin-top:40px;
-    font-size:50px;
-    text-shadow:0 0 20px #00e5ff;
-}
-
-.hero{
-    width:85%;
-    margin:auto;
-    background:#0b1335;
-    padding:40px;
-    border-radius:25px;
-    box-shadow:0 0 25px #001f5c;
-}
-
-.hero h2{
-    color:#19f0ff;
-    font-size:45px;
-}
-
-.hero p{
-    font-size:22px;
-}
-
-/* STATS */
-
-.stats{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:30px;
-    margin-top:40px;
-}
-
-.stat-box{
-    width:180px;
-    padding:30px;
-    background:#0b1335;
-    border-radius:25px;
-    box-shadow:0 0 20px #001f5c;
-}
-
-.stat-box h2{
-    color:#00f7ff;
-    font-size:50px;
-}
-
-/* MODULES */
-
-.section-title{
-    margin-top:70px;
-    font-size:50px;
-}
-
-.modules{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:40px;
-    margin-top:50px;
-}
-
-.module-card{
-    width:300px;
-    padding:40px;
-    background:#0b1335;
-    border-radius:25px;
-    cursor:pointer;
-    transition:0.3s;
-    box-shadow:0 0 20px #26003f;
-}
-
-.module-card:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 40px #00f7ff;
-}
-
-.module-card h3{
-    color:#00f7ff;
-    font-size:35px;
-}
-
-.module-card p{
-    font-size:22px;
-}
-
-/* PAGES */
-
-.page{
-    display:none;
-    padding:30px;
-}
-
-.back-btn{
-    padding:15px 30px;
-    border:none;
-    background:#00f7ff;
-    color:black;
-    font-size:22px;
-    border-radius:15px;
-    cursor:pointer;
-    margin-bottom:20px;
-}
-
-/* SUB CARDS */
-
-.sub-cards{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:30px;
-}
-
-.sub-card{
-    width:250px;
-    padding:35px;
-    background:#0b1335;
-    border-radius:25px;
-    cursor:pointer;
-    box-shadow:0 0 20px #26003f;
-    transition:0.3s;
-}
-
-.sub-card:hover{
-    transform:scale(1.05);
-    box-shadow:0 0 30px #00f7ff;
-}
-
-.sub-card h3{
-    color:#00f7ff;
-    font-size:30px;
-}
-
-/* 3D AREA */
-
-canvas{
-    display:block;
-    margin:auto;
-}
-
-#scene-container{
-    width:100%;
-    height:500px;
-    margin-top:30px;
-}
-
-/* INFO */
-
-.info{
-    width:85%;
-    margin:auto;
-    margin-top:30px;
-    background:#0b1335;
-    padding:30px;
-    border-radius:25px;
-}
-
-.info h2{
-    color:#00f7ff;
-    font-size:45px;
-}
-
-/* QUIZ */
-
-.quiz{
-    width:85%;
-    margin:auto;
-    margin-top:30px;
-    background:#0b1335;
-    padding:30px;
-    border-radius:25px;
-}
-
-.quiz h2{
-    color:#ff00ff;
-    font-size:45px;
-}
-
-.quiz p{
-    font-size:25px;
-}
-
-.quiz button{
-    padding:15px 30px;
-    margin:10px;
-    border:none;
-    border-radius:15px;
-    background:#122050;
-    color:white;
-    cursor:pointer;
-    font-size:20px;
-}
-
-#result{
-    font-size:30px;
-    color:#00ff88;
-    margin-top:20px;
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
@@ -228,575 +22,314 @@ canvas{
 
 <!-- HOME PAGE -->
 
-<section id="homePage">
+<div id="home-page">
 
-<h1>AI Interactive Learning Platform</h1>
+<h1>
+AI Interactive Learning Platform
+</h1>
 
-<div class="hero">
-    <h2>AI Powered 3D Education</h2>
+<div class="info">
 
-    <p>
-        Explore Solar System, Physics Lab and Biology Lab
-        with interactive 3D animations and quizzes.
-    </p>
+<h2>
+AI Powered 3D Education
+</h2>
+
+<p>
+Explore Solar System,
+Physics Lab,
+and Biology Lab with
+interactive 3D animations
+and quizzes.
+</p>
+
 </div>
+
+<!-- STATS -->
 
 <div class="stats">
 
-    <div class="stat-box">
-        <h2>3</h2>
-        <p>Labs</p>
-    </div>
+<div class="card">
+<h2>3</h2>
+<p>Labs</p>
+</div>
 
-    <div class="stat-box">
-        <h2>15+</h2>
-        <p>Modules</p>
-    </div>
+<div class="card">
+<h2>15+</h2>
+<p>Modules</p>
+</div>
 
-    <div class="stat-box">
-        <h2>3D</h2>
-        <p>Animations</p>
-    </div>
+<div class="card">
+<h2>3D</h2>
+<p>Animations</p>
+</div>
 
-    <div class="stat-box">
-        <h2>AI</h2>
-        <p>Learning</p>
-    </div>
+<div class="card">
+<h2>AI</h2>
+<p>Learning</p>
+</div>
 
 </div>
 
-<h2 class="section-title">Choose Learning Lab</h2>
+<!-- LAB CARDS -->
+
+<h2 class="module-title">
+Choose Learning Lab
+</h2>
 
 <div class="modules">
 
-<div class="module-card" onclick="openLab('solar')">
+<div class="module-card"
+onclick="openSolarSystem()">
+
 <h3>🌌 Solar System Lab</h3>
-<p>Explore planets with 3D animation and quizzes.</p>
+
+<p>
+Explore planets with 3D animation
+and quizzes.
+</p>
+
 </div>
 
-<div class="module-card" onclick="openLab('physics')">
+<div class="module-card"
+onclick="openPhysicsLab()">
+
 <h3>⚛️ Physics Lab</h3>
-<p>Gravity, pendulum, orbit simulation and quizzes.</p>
+
+<p>
+Gravity, pendulum,
+orbit simulation and quizzes.
+</p>
+
 </div>
 
-<div class="module-card" onclick="openLab('biology')">
+<div class="module-card"
+onclick="openBiologyLab()">
+
 <h3>🧬 Biology Lab</h3>
-<p>3D heart, brain, lungs and cells.</p>
+
+<p>
+3D heart, brain, lungs,
+cells and blood flow.
+</p>
+
+</div>
+
 </div>
 
 </div>
 
-</section>
+<!-- SOLAR SYSTEM PAGE -->
 
-<!-- SOLAR PAGE -->
+<div id="solar-page" class="hidden">
 
-<section id="solarPage" class="page">
+<button class="back-btn"
+onclick="goHome()">
 
-<button class="back-btn" onclick="goHome()">← Back</button>
+⬅ Back
 
-<h1>🌌 Solar System Lab</h1>
+</button>
 
-<div class="sub-cards">
+<h2 class="module-title">
+🌌 Solar System Lab
+</h2>
 
-<div class="sub-card" onclick="loadPlanet('sun')"><h3>Sun</h3></div>
-<div class="sub-card" onclick="loadPlanet('earth')"><h3>Earth</h3></div>
-<div class="sub-card" onclick="loadPlanet('mars')"><h3>Mars</h3></div>
+<div class="modules">
+
+<div class="module-card"
+onclick="showPlanet('sun')">
+<h3>Sun</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('mercury')">
+<h3>Mercury</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('venus')">
+<h3>Venus</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('earth')">
+<h3>Earth</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('mars')">
+<h3>Mars</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('jupiter')">
+<h3>Jupiter</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('saturn')">
+<h3>Saturn</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('uranus')">
+<h3>Uranus</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('neptune')">
+<h3>Neptune</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('pluto')">
+<h3>Pluto</h3>
+</div>
 
 </div>
 
-</section>
+</div>
 
 <!-- PHYSICS PAGE -->
 
-<section id="physicsPage" class="page">
+<div id="physics-page" class="hidden">
 
-<button class="back-btn" onclick="goHome()">← Back</button>
+<button class="back-btn"
+onclick="goHome()">
 
-<h1>⚛️ Physics Lab</h1>
+⬅ Back
 
-<div class="sub-cards">
+</button>
 
-<div class="sub-card" onclick="loadPhysics('gravity')">
-<h3>Gravity</h3>
+<h2 class="module-title">
+⚛️ Physics Lab
+</h2>
+
+<div class="modules">
+
+<div class="module-card"
+onclick="showPhysics('gravity')">
+
+<h3>Gravity Simulation</h3>
+
 </div>
 
-<div class="sub-card" onclick="loadPhysics('pendulum')">
+<div class="module-card"
+onclick="showPhysics('pendulum')">
+
 <h3>Pendulum</h3>
-</div>
-
-<div class="sub-card" onclick="loadPhysics('orbit')">
-<h3>Orbit</h3>
-</div>
 
 </div>
 
-</section>
+<div class="module-card"
+onclick="showPhysics('orbit')">
+
+<h3>Orbit Simulation</h3>
+
+</div>
+
+</div>
+
+</div>
 
 <!-- BIOLOGY PAGE -->
 
-<section id="biologyPage" class="page">
+<div id="biology-page" class="hidden">
 
-<button class="back-btn" onclick="goHome()">← Back</button>
+<button class="back-btn"
+onclick="goHome()">
 
-<h1>🧬 Biology Lab</h1>
+⬅ Back
 
-<div class="sub-cards">
+</button>
 
-<div class="sub-card" onclick="loadBiology('heart')">
+<h2 class="module-title">
+🧬 Biology Lab
+</h2>
+
+<div class="modules">
+
+<div class="module-card"
+onclick="showBiology('heart')">
+
 <h3>❤️ Heart</h3>
+
 </div>
 
-<div class="sub-card" onclick="loadBiology('lungs')">
-<h3>🫁 Lungs</h3>
-</div>
+<div class="module-card"
+onclick="showBiology('brain')">
 
-<div class="sub-card" onclick="loadBiology('brain')">
 <h3>🧠 Brain</h3>
-</div>
-
-<div class="sub-card" onclick="loadBiology('cells')">
-<h3>🦠 Cells</h3>
-</div>
 
 </div>
 
-</section>
+<div class="module-card"
+onclick="showBiology('lungs')">
 
-<!-- VIEWER -->
+<h3>🫁 Lungs</h3>
+
+</div>
+
+<div class="module-card"
+onclick="showBiology('cells')">
+
+<h3>🔬 Cells</h3>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- 3D VIEWER -->
+
+<div id="viewer-section"
+class="hidden">
+
+<button class="back-btn"
+onclick="closeViewer()">
+
+⬅ Back
+
+</button>
 
 <div id="scene-container"></div>
 
 <div class="info">
-<h2 id="title">Title</h2>
-<p id="description">Description</p>
+
+<h2 id="planet-title">
+Module
+</h2>
+
+<p id="planet-info">
+Information
+</p>
+
 </div>
 
 <div class="quiz">
-<h2>Quiz</h2>
 
-<p id="question">Question</p>
+<h2>
+Quiz
+</h2>
 
-<button id="btn1"></button>
-<button id="btn2"></button>
+<p id="question"></p>
+
+<button onclick="checkAnswer(0)">
+Option 1
+</button>
+
+<button onclick="checkAnswer(1)">
+Option 2
+</button>
 
 <p id="result"></p>
 
 </div>
 
-<script>
+</div>
 
-let scene,camera,renderer,currentObject;
-let animateObject = ()=>{};
-let correctAnswer="";
-
-scene = new THREE.Scene();
-
-camera = new THREE.PerspectiveCamera(
-75,
-window.innerWidth/window.innerHeight,
-0.1,
-1000
-);
-
-renderer = new THREE.WebGLRenderer({antialias:true});
-
-renderer.setSize(window.innerWidth,500);
-
-document.getElementById("scene-container")
-.appendChild(renderer.domElement);
-
-camera.position.z = 7;
-
-const light = new THREE.PointLight(0xffffff,2);
-
-light.position.set(10,10,10);
-
-scene.add(light);
-
-function animate(){
-
-requestAnimationFrame(animate);
-
-animateObject();
-
-renderer.render(scene,camera);
-
-}
-
-animate();
-
-function clearScene(){
-
-if(currentObject){
-scene.remove(currentObject);
-}
-
-document.getElementById("result").innerHTML="";
-
-}
-
-function openLab(type){
-
-document.getElementById("homePage").style.display="none";
-
-document.getElementById("solarPage").style.display="none";
-document.getElementById("physicsPage").style.display="none";
-document.getElementById("biologyPage").style.display="none";
-
-if(type==="solar"){
-document.getElementById("solarPage").style.display="block";
-}
-
-if(type==="physics"){
-document.getElementById("physicsPage").style.display="block";
-}
-
-if(type==="biology"){
-document.getElementById("biologyPage").style.display="block";
-}
-
-}
-
-function goHome(){
-
-document.getElementById("homePage").style.display="block";
-
-document.getElementById("solarPage").style.display="none";
-document.getElementById("physicsPage").style.display="none";
-document.getElementById("biologyPage").style.display="none";
-
-}
-
-function setInfo(title,desc,q,a1,a2,correct){
-
-document.getElementById("title").innerHTML=title;
-document.getElementById("description").innerHTML=desc;
-document.getElementById("question").innerHTML=q;
-
-document.getElementById("btn1").innerHTML=a1;
-document.getElementById("btn2").innerHTML=a2;
-
-correctAnswer=correct;
-
-document.getElementById("btn1").onclick=()=>checkAnswer(a1);
-document.getElementById("btn2").onclick=()=>checkAnswer(a2);
-
-}
-
-function checkAnswer(ans){
-
-if(ans===correctAnswer){
-document.getElementById("result").innerHTML="Correct!";
-}
-else{
-document.getElementById("result").innerHTML="Wrong!";
-}
-
-}
-
-/* SOLAR */
-
-function loadPlanet(type){
-
-clearScene();
-
-let geometry,color,title,desc;
-
-if(type==="sun"){
-geometry=new THREE.SphereGeometry(2,64,64);
-color=0xffff00;
-title="Sun";
-desc="Center of solar system.";
-
-setInfo(
-"Sun",
-desc,
-"What is center of solar system?",
-"Sun",
-"Earth",
-"Sun"
-);
-}
-
-if(type==="earth"){
-geometry=new THREE.SphereGeometry(1.5,64,64);
-color=0x0066ff;
-title="Earth";
-desc="Planet that supports life.";
-
-setInfo(
-"Earth",
-desc,
-"Which planet supports life?",
-"Earth",
-"Mars",
-"Earth"
-);
-}
-
-if(type==="mars"){
-geometry=new THREE.SphereGeometry(1.3,64,64);
-color=0xff3300;
-title="Mars";
-desc="Known as red planet.";
-
-setInfo(
-"Mars",
-desc,
-"Which is red planet?",
-"Mars",
-"Venus",
-"Mars"
-);
-}
-
-const material=new THREE.MeshStandardMaterial({color});
-
-currentObject=new THREE.Mesh(geometry,material);
-
-scene.add(currentObject);
-
-animateObject=()=>{
-currentObject.rotation.y+=0.01;
-};
-
-}
-
-/* PHYSICS */
-
-function loadPhysics(type){
-
-clearScene();
-
-if(type==="gravity"){
-
-const geometry=new THREE.SphereGeometry(2,64,64);
-
-const material=new THREE.MeshStandardMaterial({
-color:0x00ffff,
-wireframe:true
-});
-
-currentObject=new THREE.Mesh(geometry,material);
-
-scene.add(currentObject);
-
-animateObject=()=>{
-currentObject.rotation.y+=0.02;
-};
-
-setInfo(
-"Gravity",
-"Gravity pulls objects.",
-"What force pulls objects?",
-"Gravity",
-"Light",
-"Gravity"
-);
-
-}
-
-if(type==="pendulum"){
-
-const group=new THREE.Group();
-
-const ball=new THREE.Mesh(
-new THREE.SphereGeometry(1,32,32),
-new THREE.MeshStandardMaterial({color:0xffaa00})
-);
-
-ball.position.y=-2;
-
-group.add(ball);
-
-currentObject=group;
-
-scene.add(currentObject);
-
-animateObject=()=>{
-group.rotation.z=Math.sin(Date.now()*0.002)*0.7;
-};
-
-setInfo(
-"Pendulum",
-"Pendulum swings side to side.",
-"What does pendulum do?",
-"Swing",
-"Fly",
-"Swing"
-);
-
-}
-
-if(type==="orbit"){
-
-const ring=new THREE.Mesh(
-new THREE.TorusGeometry(2,0.1,16,100),
-new THREE.MeshStandardMaterial({color:0xffffff})
-);
-
-currentObject=ring;
-
-scene.add(currentObject);
-
-animateObject=()=>{
-ring.rotation.x+=0.02;
-ring.rotation.y+=0.01;
-};
-
-setInfo(
-"Orbit",
-"Planets orbit stars.",
-"What do planets do?",
-"Orbit",
-"Stop",
-"Orbit"
-);
-
-}
-
-}
-
-/* BIOLOGY */
-
-function loadBiology(type){
-
-clearScene();
-
-if(type==="heart"){
-
-const geometry=new THREE.TorusKnotGeometry(2,0.7,120,16);
-
-const material=new THREE.MeshStandardMaterial({
-color:0xff3355
-});
-
-currentObject=new THREE.Mesh(geometry,material);
-
-scene.add(currentObject);
-
-animateObject=()=>{
-currentObject.rotation.y+=0.02;
-
-let beat=1+Math.sin(Date.now()*0.005)*0.1;
-
-currentObject.scale.set(beat,beat,beat);
-};
-
-setInfo(
-"Heart",
-"Heart pumps blood.",
-"Which organ pumps blood?",
-"Heart",
-"Liver",
-"Heart"
-);
-
-}
-
-if(type==="lungs"){
-
-const group=new THREE.Group();
-
-const left=new THREE.Mesh(
-new THREE.SphereGeometry(1.5,64,64),
-new THREE.MeshStandardMaterial({color:0xffc0cb})
-);
-
-const right=new THREE.Mesh(
-new THREE.SphereGeometry(1.5,64,64),
-new THREE.MeshStandardMaterial({color:0xffc0cb})
-);
-
-left.position.x=-1.5;
-right.position.x=1.5;
-
-group.add(left);
-group.add(right);
-
-currentObject=group;
-
-scene.add(currentObject);
-
-animateObject=()=>{
-
-let breath=1+Math.sin(Date.now()*0.003)*0.08;
-
-left.scale.set(breath,breath,breath);
-right.scale.set(breath,breath,breath);
-
-group.rotation.y+=0.01;
-};
-
-setInfo(
-"Lungs",
-"Lungs help breathing.",
-"Which organ helps breathing?",
-"Lungs",
-"Kidney",
-"Lungs"
-);
-
-}
-
-if(type==="brain"){
-
-const geometry=new THREE.IcosahedronGeometry(2,8);
-
-const material=new THREE.MeshStandardMaterial({
-color:0xffaa88
-});
-
-currentObject=new THREE.Mesh(geometry,material);
-
-scene.add(currentObject);
-
-animateObject=()=>{
-currentObject.rotation.y+=0.01;
-};
-
-setInfo(
-"Brain",
-"Brain controls body.",
-"Which organ controls body?",
-"Brain",
-"Heart",
-"Brain"
-);
-
-}
-
-if(type==="cells"){
-
-const geometry=new THREE.OctahedronGeometry(2,4);
-
-const material=new THREE.MeshStandardMaterial({
-color:0x44ff99
-});
-
-currentObject=new THREE.Mesh(geometry,material);
-
-scene.add(currentObject);
-
-animateObject=()=>{
-currentObject.rotation.x+=0.01;
-currentObject.rotation.y+=0.02;
-};
-
-setInfo(
-"Cells",
-"Cells are building blocks of life.",
-"What is basic unit of life?",
-"Cell",
-"Rock",
-"Cell"
-);
-
-}
-
-}
-
-</script>
+<script src="script.js"></script>
 
 </body>
+
 </html>
