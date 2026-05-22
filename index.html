@@ -1,3 +1,4 @@
+<
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,6 +14,8 @@ AI Interactive Learning Platform
 </title>
 
 <link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 </head>
 
@@ -36,7 +39,7 @@ AI Powered 3D Education
 Explore Solar System,
 Physics Lab,
 and Biology Lab with
-realistic 3D animations
+interactive 3D animations
 and quizzes.
 </p>
 
@@ -82,7 +85,8 @@ onclick="openSolarSystem()">
 <h3>🌌 Solar System Lab</h3>
 
 <p>
-Explore planets with realistic 3D.
+Explore planets with 3D animation
+and quizzes.
 </p>
 
 </div>
@@ -93,7 +97,8 @@ onclick="openPhysicsLab()">
 <h3>⚛️ Physics Lab</h3>
 
 <p>
-Gravity, pendulum and orbit simulations.
+Gravity, pendulum,
+orbit simulation and quizzes.
 </p>
 
 </div>
@@ -104,7 +109,8 @@ onclick="openBiologyLab()">
 <h3>🧬 Biology Lab</h3>
 
 <p>
-Heart, Brain, Lungs and Cells.
+3D heart, brain, lungs,
+cells and blood flow.
 </p>
 
 </div>
@@ -132,17 +138,52 @@ onclick="goHome()">
 
 <div class="module-card"
 onclick="showPlanet('sun')">
-<h3>☀ Sun</h3>
+<h3>Sun</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('mercury')">
+<h3>Mercury</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('venus')">
+<h3>Venus</h3>
 </div>
 
 <div class="module-card"
 onclick="showPlanet('earth')">
-<h3>🌍 Earth</h3>
+<h3>Earth</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('mars')">
+<h3>Mars</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('jupiter')">
+<h3>Jupiter</h3>
 </div>
 
 <div class="module-card"
 onclick="showPlanet('saturn')">
-<h3>🪐 Saturn</h3>
+<h3>Saturn</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('uranus')">
+<h3>Uranus</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('neptune')">
+<h3>Neptune</h3>
+</div>
+
+<div class="module-card"
+onclick="showPlanet('pluto')">
+<h3>Pluto</h3>
 </div>
 
 </div>
@@ -169,21 +210,21 @@ onclick="goHome()">
 <div class="module-card"
 onclick="showPhysics('gravity')">
 
-<h3>🌍 Gravity</h3>
+<h3>Gravity Simulation</h3>
 
 </div>
 
 <div class="module-card"
 onclick="showPhysics('pendulum')">
 
-<h3>⏳ Pendulum</h3>
+<h3>Pendulum</h3>
 
 </div>
 
 <div class="module-card"
 onclick="showPhysics('orbit')">
 
-<h3>🪐 Orbit</h3>
+<h3>Orbit Simulation</h3>
 
 </div>
 
@@ -232,7 +273,7 @@ onclick="showBiology('lungs')">
 <div class="module-card"
 onclick="showBiology('cells')">
 
-<h3>🦠 Cells</h3>
+<h3>🔬 Cells</h3>
 
 </div>
 
@@ -240,7 +281,7 @@ onclick="showBiology('cells')">
 
 </div>
 
-<!-- VIEWER -->
+<!-- 3D VIEWER -->
 
 <div id="viewer-section"
 class="hidden">
@@ -252,25 +293,7 @@ onclick="closeViewer()">
 
 </button>
 
-<!-- REALISTIC 3D AREA -->
-
-<div id="scene-container">
-
-<iframe
-id="model-frame"
-src=""
-width="100%"
-height="500"
-style="
-border:none;
-border-radius:25px;
-display:none;
-">
-</iframe>
-
-</div>
-
-<!-- INFO -->
+<div id="scene-container"></div>
 
 <div class="info">
 
@@ -284,8 +307,6 @@ Information
 
 </div>
 
-<!-- QUIZ -->
-
 <div class="quiz">
 
 <h2>
@@ -294,18 +315,12 @@ Quiz
 
 <p id="question"></p>
 
-<button id="option1"
-onclick="checkAnswer(0)">
-
+<button onclick="checkAnswer(0)">
 Option 1
-
 </button>
 
-<button id="option2"
-onclick="checkAnswer(1)">
-
+<button onclick="checkAnswer(1)">
 Option 2
-
 </button>
 
 <p id="result"></p>
