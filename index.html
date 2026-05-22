@@ -1,60 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI Solar System Learning App</title>
 
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+AI Solar System Learning App
+</title>
+
+<link rel="stylesheet" href="style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
 </head>
+
 <body>
 
-  <h1>AI Solar System Learning App</h1>
-  <div class="buttons">
-    <button onclick="showPlanet('sun')">Sun</button>
+<h1>AI Solar System Learning App</h1>
 
-    <button onclick="showPlanet('mercury')">Mercury</button>
+<div class="buttons">
 
-    <button onclick="showPlanet('venus')">Venus</button>
+<button onclick="showPlanet('sun')">
+Sun
+</button>
 
-    <button onclick="showPlanet('earth')">Earth</button>
+<button onclick="showPlanet('mercury')">
+Mercury
+</button>
 
-    <button onclick="showPlanet('mars')">Mars</button>
+<button onclick="showPlanet('venus')">
+Venus
+</button>
 
-    <button onclick="showPlanet('jupiter')">Jupiter</button>
+<button onclick="showPlanet('earth')">
+Earth
+</button>
 
-    <button onclick="showPlanet('saturn')">Saturn</button>
+<button onclick="showPlanet('mars')">
+Mars
+</button>
 
-    <button onclick="showPlanet('uranus')">Uranus</button>
+<button onclick="showPlanet('jupiter')">
+Jupiter
+</button>
 
-    <button onclick="showPlanet('neptune')">Neptune</button>
+<button onclick="showPlanet('saturn')">
+Saturn
+</button>
 
-    <button onclick="showPlanet('pluto')">Pluto</button>
+<button onclick="showPlanet('uranus')">
+Uranus
+</button>
 
-  </div>
+<button onclick="showPlanet('neptune')">
+Neptune
+</button>
 
-  <div id="scene-container"></div>
+<button onclick="showPlanet('pluto')">
+Pluto
+</button>
 
-  <div class="info">
-    <h2>Earth</h2>
-    <p>Earth is the third planet from the Sun.</p>
-  </div>
+</div>
 
-  <div class="quiz">
-    <h2>Quiz</h2>
+<div id="scene-container"></div>
 
-    <p>Which planet is known as the Red Planet?</p>
+<div class="info">
 
-    <button onclick="checkAnswer('Mars')">Mars</button>
-    <button onclick="checkAnswer('Earth')">Earth</button>
+<h2 id="planet-title">
+Planet
+</h2>
 
-    <p id="result"></p>
-  </div>
+<p id="planet-info">
+Planet Information
+</p>
 
-  <script src="script.js"></script>
-  <script src="quiz.js"></script>
+</div>
+
+<div class="quiz">
+
+<h2>Quiz</h2>
+
+<p id="question"></p>
+
+<button onclick="checkAnswer(0)">
+Option 1
+</button>
+
+<button onclick="checkAnswer(1)">
+Option 2
+</button>
+
+<p id="result"></p>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
