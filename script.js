@@ -409,6 +409,174 @@ new THREE.Mesh(
 
 new THREE.SphereGeometry(0.5,32,32),
 
+new THREE.MeshBasicMaterial({
+color:0x0000ff
+})
+
+);
+
+orbitPlanet.position.x = 4;
+
+currentObject.add(orbitPlanet);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Orbit Simulation",
+"Earth revolves around Sun.",
+"What revolves around Sun?",
+["Earth","Chair"],
+0
+);
+
+}
+
+}
+
+// ---------------- BIOLOGY ----------------
+
+function showBiology(type){
+
+clearScene();
+
+// HEART
+if(type === "heart"){
+
+const heart =
+new THREE.Mesh(
+
+new THREE.SphereGeometry(2,64,64),
+
+new THREE.MeshStandardMaterial({
+color:0xff0000
+})
+
+);
+
+currentObject = heart;
+
+scene.add(currentObject);
+
+updateQuiz(
+"Heart Beat",
+"Heart beats continuously.",
+"Which organ pumps blood?",
+["Heart","Liver"],
+0
+);
+
+}
+
+// BRAIN
+if(type === "brain"){
+
+const brain =
+new THREE.Mesh(
+
+new THREE.IcosahedronGeometry(2,3),
+
+new THREE.MeshStandardMaterial({
+color:0xff99cc
+})
+
+);
+
+currentObject = brain;
+
+scene.add(currentObject);
+
+updateQuiz(
+"Brain",
+"Brain controls body.",
+"Which organ controls body?",
+["Brain","Lungs"],
+0
+);
+
+}
+
+// LUNGS
+if(type === "lungs"){
+
+currentObject =
+new THREE.Group();
+
+const lung1 =
+new THREE.Mesh(
+
+new THREE.SphereGeometry(1.2,32,32),
+
+new THREE.MeshStandardMaterial({
+color:0xff6666
+})
+
+);
+
+lung1.position.x = -1.2;
+
+const lung2 =
+new THREE.Mesh(
+
+new THREE.SphereGeometry(1.2,32,32),
+
+new THREE.MeshStandardMaterial({
+color:0xff6666
+})
+
+);
+
+lung2.position.x = 1.2;
+
+currentObject.add(lung1);
+
+currentObject.add(lung2);
+
+scene.add(currentObject);
+
+updateQuiz(
+"Lungs",
+"Lungs expand while breathing.",
+"Which organ helps breathing?",
+["Lungs","Heart"],
+0
+);
+
+}
+
+// CELLS
+if(type === "cells"){
+
+const cell =
+new THREE.Mesh(
+
+new THREE.TorusKnotGeometry(
+1.5,
+0.5,
+100,
+16
+),
+
+new THREE.MeshStandardMaterial({
+color:0x00ff99
+})
+
+);
+
+currentObject = cell;
+
+scene.add(currentObject);
+
+updateQuiz(
+"Cells",
+"Cells are basic unit of life.",
+"Basic unit of life?",
+["Cells","Bones"],
+0
+);
+
+}
+
+}
 
 // ---------------- QUIZ ----------------
 
@@ -429,154 +597,7 @@ result.innerHTML = "Wrong!";
 }
 
 }
-// =========================
-// BIOLOGY MODELS
-// =========================
 
-function loadBiology(type) {
-
-    clearScene();
-
-    if (type === "heart") {
-
-        const geometry = new THREE.TorusKnotGeometry(2, 0.7, 120, 16);
-
-        const material = new THREE.MeshStandardMaterial({
-            color: 0xff3355,
-            metalness: 0.3,
-            roughness: 0.4
-        });
-
-        currentObject = new THREE.Mesh(geometry, material);
-
-        scene.add(currentObject);
-
-        animateObject = () => {
-            currentObject.rotation.y += 0.02;
-            currentObject.scale.x = 1 + Math.sin(Date.now() * 0.005) * 0.1;
-            currentObject.scale.y = 1 + Math.sin(Date.now() * 0.005) * 0.1;
-        };
-
-        setInfo(
-            "Heart",
-            "The heart pumps blood through the body.",
-            "Which organ pumps blood?",
-            "Heart",
-            "Liver"
-        );
-    }
-
-    // =========================
-    // LUNGS
-    // =========================
-
-    if (type === "lungs") {
-
-        const leftGeometry = new THREE.SphereGeometry(1.8, 64, 64);
-        const rightGeometry = new THREE.SphereGeometry(1.8, 64, 64);
-
-        const material = new THREE.MeshStandardMaterial({
-            color: 0xffc0cb,
-            transparent: true,
-            opacity: 0.9
-        });
-
-        const leftLung = new THREE.Mesh(leftGeometry, material);
-        const rightLung = new THREE.Mesh(rightGeometry, material);
-
-        leftLung.position.x = -1.5;
-        rightLung.position.x = 1.5;
-
-        const lungGroup = new THREE.Group();
-
-        lungGroup.add(leftLung);
-        lungGroup.add(rightLung);
-
-        currentObject = lungGroup;
-
-        scene.add(currentObject);
-
-        animateObject = () => {
-
-            const breath = 1 + Math.sin(Date.now() * 0.003) * 0.08;
-
-            leftLung.scale.set(breath, breath, breath);
-            rightLung.scale.set(breath, breath, breath);
-
-            lungGroup.rotation.y += 0.01;
-        };
-
-        setInfo(
-            "Lungs",
-            "Lungs help humans breathe oxygen.",
-            "Which organ helps breathing?",
-            "Lungs",
-            "Kidney"
-        );
-    }
-
-    // =========================
-    // BRAIN
-    // =========================
-
-    if (type === "brain") {
-
-        const geometry = new THREE.IcosahedronGeometry(2.2, 8);
-
-        const material = new THREE.MeshStandardMaterial({
-            color: 0xffaa88,
-            wireframe: false
-        });
-
-        currentObject = new THREE.Mesh(geometry, material);
-
-        scene.add(currentObject);
-
-        animateObject = () => {
-            currentObject.rotation.y += 0.01;
-            currentObject.rotation.x += 0.005;
-        };
-
-        setInfo(
-            "Brain",
-            "The brain controls the body and thoughts.",
-            "Which organ controls the body?",
-            "Brain",
-            "Heart"
-        );
-    }
-
-    // =========================
-    // CELLS
-    // =========================
-
-    if (type === "cells") {
-
-        const geometry = new THREE.OctahedronGeometry(2.2, 4);
-
-        const material = new THREE.MeshStandardMaterial({
-            color: 0x44ff99,
-            wireframe: false
-        });
-
-        currentObject = new THREE.Mesh(geometry, material);
-
-        scene.add(currentObject);
-
-        animateObject = () => {
-            currentObject.rotation.x += 0.01;
-            currentObject.rotation.y += 0.02;
-        };
-
-        setInfo(
-            "Cells",
-            "Cells are the building blocks of life.",
-            "What is the basic unit of life?",
-            "Cell",
-            "Rock"
-        );
-    }
-          }
 // ---------------- ANIMATION ----------------
 
 function animate(){
