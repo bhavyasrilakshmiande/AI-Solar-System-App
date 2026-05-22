@@ -16,63 +16,147 @@ renderer.setSize(window.innerWidth,400);
 document.getElementById("scene-container")
 .appendChild(renderer.domElement);
 
-camera.position.z = 45;
+camera.position.z = 8;
 
-// SUN
-const sunGeometry = new THREE.SphereGeometry(3,32,32);
+let currentPlanet;
 
-const sunMaterial = new THREE.MeshBasicMaterial({
-color:0xffff00
-});
+const planetData = {
 
-const sun = new THREE.Mesh(
-sunGeometry,
-sunMaterial
-);
+sun:{
+color:0xffff00,
+size:2,
+title:"Sun",
+info:"Sun is the center of the solar system.",
+question:"What is at the center?",
+options:["Sun","Earth"],
+answer:0
+},
 
-scene.add(sun);
+mercury:{
+color:0xaaaaaa,
+size:0.5,
+title:"Mercury",
+info:"Mercury is closest to the Sun.",
+question:"Closest planet to Sun?",
+options:["Mercury","Mars"],
+answer:0
+},
 
-// PLANETS
-const planets = [];
+venus:{
+color:0xffcc99,
+size:0.7,
+title:"Venus",
+info:"Venus is the hottest planet.",
+question:"Hottest planet?",
+options:["Venus","Earth"],
+answer:0
+},
 
-function addPlanet(size,color,distance,speed){
+earth:{
+color:0x0000ff,
+size:0.8,
+title:"Earth",
+info:"Earth supports life.",
+question:"Planet with life?",
+options:["Mars","Earth"],
+answer:1
+},
+
+mars:{
+color:0xff0000,
+size:0.7,
+title:"Mars",
+info:"Mars is called Red Planet.",
+question:"Red planet?",
+options:["Mars","Venus"],
+answer:0
+},
+
+jupiter:{
+color:0xff9900,
+size:1.5,
+title:"Jupiter",
+info:"Jupiter is the biggest planet.",
+question:"Largest planet?",
+options:["Earth","Jupiter"],
+answer:1
+},
+
+saturn:{
+color:0xffcc66,
+size:1.3,
+title:"Saturn",
+info:"Saturn has beautiful rings.",
+question:"Planet with rings?",
+options:["Saturn","Mars"],
+answer:0
+},
+
+uranus:{
+color:0x66ffff,
+size:1.1,
+title:"Uranus",
+info:"Uranus rotates sideways.",
+question:"Which planet rotates sideways?",
+options:["Uranus","Earth"],
+answer:0
+},
+
+neptune:{
+color:0x3333ff,
+size:1.1,
+title:"Neptune",
+info:"Neptune is very cold.",
+question:"Coldest planet?",
+options:["Neptune","Venus"],
+answer:0
+},
+
+pluto:{
+color:0xffffff,
+size:0.4,
+title:"Pluto",
+info:"Pluto is a dwarf planet.",
+question:"Which is dwarf planet?",
+options:["Pluto","Mars"],
+answer:0
+}
+
+};
+
+// SHOW PLANET
+function showPlanet(name){
+
+if(currentPlanet){
+scene.remove(currentPlanet);
+}
+
+const data = planetData[name];
 
 const geometry =
-new THREE.SphereGeometry(size,32,32);
+new THREE.SphereGeometry(
+data.size,
+32,
+32
+);
 
 const material =
 new THREE.MeshBasicMaterial({
-color:color,
+color:data.color,
 wireframe:true
 });
 
-const planet =
-new THREE.Mesh(geometry,material);
-
-scene.add(planet);
-
-planets.push({
-planet,
-distance,
-speed
-});
-
-return planet;
-}
-
-// ALL PLANETS
-addPlanet(0.4,0xaaaaaa,6,0.04); // Mercury
-addPlanet(0.7,0xffcc99,9,0.03); // Venus
-addPlanet(0.8,0x0000ff,12,0.025); // Earth
-addPlanet(0.6,0xff0000,15,0.02); // Mars
-addPlanet(1.8,0xff9900,20,0.015); // Jupiter
-
-const saturn =
-addPlanet(1.5,0xffcc66,25,0.012);
+currentPlanet =
+new THREE.Mesh(
+geometry,
+material
+);
 
 // SATURN RING
+if(name === "saturn"){
+
 const ringGeometry =
-new THREE.RingGeometry(2,3,32);
+new THREE.RingGeometry(1.8,2.5,32);
 
 const ringMaterial =
 new THREE.MeshBasicMaterial({
@@ -88,35 +172,63 @@ ringMaterial
 
 ring.rotation.x = Math.PI/2;
 
-saturn.add(ring);
+currentPlanet.add(ring);
+}
 
-addPlanet(1.2,0x66ffff,30,0.01); // Uranus
-addPlanet(1.1,0x3333ff,35,0.008); // Neptune
-addPlanet(0.3,0xffffff,40,0.006); // Pluto
+scene.add(currentPlanet);
 
+// TEXT
+document.getElementById("planet-title")
+.innerHTML = data.title;
+
+document.getElementById("planet-info")
+.innerHTML = data.info;
+
+document.getElementById("question")
+.innerHTML = data.question;
+
+const buttons =
+document.querySelectorAll(".quiz button");
+
+buttons[0].innerHTML =
+data.options[0];
+
+buttons[1].innerHTML =
+data.options[1];
+
+window.correctAnswer =
+data.answer;
+
+}
+
+// QUIZ
+function checkAnswer(index){
+
+const result =
+document.getElementById("result");
+
+if(index === window.correctAnswer){
+result.innerHTML = "Correct!";
+}
+else{
+result.innerHTML = "Wrong!";
+}
+
+}
+
+// ANIMATION
 function animate(){
 
 requestAnimationFrame(animate);
 
-sun.rotation.y += 0.01;
-
-planets.forEach((obj,index)=>{
-
-obj.planet.rotation.y += 0.02;
-
-const angle =
-Date.now()*0.001*obj.speed*50;
-
-obj.planet.position.x =
-Math.cos(angle+index)*obj.distance;
-
-obj.planet.position.z =
-Math.sin(angle+index)*obj.distance;
-
-});
+if(currentPlanet){
+currentPlanet.rotation.y += 0.01;
+}
 
 renderer.render(scene,camera);
 
 }
+
+showPlanet("sun");
 
 animate();
