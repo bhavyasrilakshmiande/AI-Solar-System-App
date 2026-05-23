@@ -1,336 +1,226 @@
-<
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
 
-<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<meta charset="UTF-8">
+    <title>AI Interactive Learning App</title>
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" />
 
-<title>
-AI Interactive Learning Platform
-</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  </head>
 
-<link rel="stylesheet" href="style.css">
+  <body>
+    <!-- HOME PAGE -->
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <div id="home-page">
+      <h1>AI Interactive Learning App</h1>
 
-</head>
+      <div class="info">
+        <h2>AI Powered 3D Education</h2>
 
-<body>
+        <p>
+          Explore Solar System, Physics Lab, and Biology Lab with interactive 3D
+          animations and quizzes.
+        </p>
+      </div>
 
-<!-- HOME PAGE -->
+      <!-- STATS -->
 
-<div id="home-page">
+      <div class="stats">
+        <div class="card">
+          <h2>3</h2>
+          <p>Labs</p>
+        </div>
 
-<h1>
-AI Interactive Learning Platform
-</h1>
+        <div class="card">
+          <h2>15+</h2>
+          <p>Modules</p>
+        </div>
 
-<div class="info">
+        <div class="card">
+          <h2>3D</h2>
+          <p>Animations</p>
+        </div>
 
-<h2>
-AI Powered 3D Education
-</h2>
+        <div class="card">
+          <h2>AI</h2>
+          <p>Learning</p>
+        </div>
+      </div>
 
-<p>
-Explore Solar System,
-Physics Lab,
-and Biology Lab with
-interactive 3D animations
-and quizzes.
-</p>
+      <!-- LAB CARDS -->
 
-</div>
+      <h2 class="module-title">Choose Learning Lab</h2>
 
-<!-- STATS -->
+      <div class="modules">
+        <div class="module-card" onclick="openSolarSystem()">
+          <h3>🌌 Solar System Lab</h3>
 
-<div class="stats">
+          <p>Explore planets with 3D animation and quizzes.</p>
+        </div>
 
-<div class="card">
-<h2>3</h2>
-<p>Labs</p>
-</div>
+        <div class="module-card" onclick="openPhysicsLab()">
+          <h3>⚛️ Physics Lab</h3>
 
-<div class="card">
-<h2>15+</h2>
-<p>Modules</p>
-</div>
+          <p>Gravity, pendulum, orbit simulation and quizzes.</p>
+        </div>
 
-<div class="card">
-<h2>3D</h2>
-<p>Animations</p>
-</div>
+        <div class="module-card" onclick="openBiologyLab()">
+          <h3>🧬 Biology Lab</h3>
 
-<div class="card">
-<h2>AI</h2>
-<p>Learning</p>
-</div>
+          <p>3D heart, brain, lungs, cells and blood flow.</p>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <!-- SOLAR SYSTEM PAGE -->
 
-<!-- LAB CARDS -->
+    <div id="solar-page" class="hidden">
+      <button class="back-btn" onclick="goHome()">⬅ Back</button>
 
-<h2 class="module-title">
-Choose Learning Lab
-</h2>
+      <h2 class="module-title">🌌 Solar System Lab</h2>
 
-<div class="modules">
+      <div class="modules">
+        <div class="module-card" onclick="showPlanet('sun')">
+          <h3>Sun</h3>
+        </div>
 
-<div class="module-card"
-onclick="openSolarSystem()">
+        <div class="module-card" onclick="showPlanet('mercury')">
+          <h3>Mercury</h3>
+        </div>
 
-<h3>🌌 Solar System Lab</h3>
+        <div class="module-card" onclick="showPlanet('venus')">
+          <h3>Venus</h3>
+        </div>
 
-<p>
-Explore planets with 3D animation
-and quizzes.
-</p>
+        <div class="module-card" onclick="showPlanet('earth')">
+          <h3>Earth</h3>
+        </div>
 
-</div>
+        <div class="module-card" onclick="showPlanet('mars')">
+          <h3>Mars</h3>
+        </div>
 
-<div class="module-card"
-onclick="openPhysicsLab()">
+        <div class="module-card" onclick="showPlanet('jupiter')">
+          <h3>Jupiter</h3>
+        </div>
 
-<h3>⚛️ Physics Lab</h3>
+        <div class="module-card" onclick="showPlanet('saturn')">
+          <h3>Saturn</h3>
+        </div>
 
-<p>
-Gravity, pendulum,
-orbit simulation and quizzes.
-</p>
+        <div class="module-card" onclick="showPlanet('uranus')">
+          <h3>Uranus</h3>
+        </div>
 
-</div>
+        <div class="module-card" onclick="showPlanet('neptune')">
+          <h3>Neptune</h3>
+        </div>
 
-<div class="module-card"
-onclick="openBiologyLab()">
+        <div class="module-card" onclick="showPlanet('pluto')">
+          <h3>Pluto</h3>
+        </div>
+      </div>
+      <button onclick="speakInfo()">🔊 Voice Explanation</button>
+      <button onclick="stopVoice()">⏹ Stop Voice</button>
+    </div>
 
-<h3>🧬 Biology Lab</h3>
+    <!-- PHYSICS PAGE -->
 
-<p>
-3D heart, brain, lungs,
-cells and blood flow.
-</p>
+    <div id="physics-page" class="hidden">
+      <button class="back-btn" onclick="goHome()">⬅ Back</button>
 
-</div>
+      <h2 class="module-title">⚛️ Physics Lab</h2>
 
-</div>
+      <div class="modules">
+        <div class="module-card" onclick="showPhysics('gravity')">
+          <h3>Gravity Simulation</h3>
+        </div>
 
-</div>
+        <div class="module-card" onclick="showPhysics('pendulum')">
+          <h3>Pendulum</h3>
+        </div>
 
-<!-- SOLAR SYSTEM PAGE -->
+        <div class="module-card" onclick="showPhysics('orbit')">
+          <h3>Orbit Simulation</h3>
+        </div>
+      </div>
+      <button onclick="speakInfo()">🔊 Voice Explanation</button>
+      <button onclick="stopVoice()">⏹ Stop Voice</button>
+    </div>
 
-<div id="solar-page" class="hidden">
+    <!-- BIOLOGY PAGE -->
 
-<button class="back-btn"
-onclick="goHome()">
+    <div id="biology-page" class="hidden">
+      <button class="back-btn" onclick="goHome()">⬅ Back</button>
 
-⬅ Back
+      <h2 class="module-title">🧬 Biology Lab</h2>
 
-</button>
+      <div class="modules">
+        <div class="module-card" onclick="showBiology('heart')">
+          <h3>❤️ Heart</h3>
+        </div>
 
-<h2 class="module-title">
-🌌 Solar System Lab
-</h2>
+        <div class="module-card" onclick="showBiology('brain')">
+          <h3>🧠 Brain</h3>
+        </div>
 
-<div class="modules">
+        <div class="module-card" onclick="showBiology('lungs')">
+          <h3>🫁 Lungs</h3>
+        </div>
 
-<div class="module-card"
-onclick="showPlanet('sun')">
-<h3>Sun</h3>
-</div>
+        <div class="module-card" onclick="showBiology('cells')">
+          <h3>🔬 Cells</h3>
+        </div>
+      </div>
+      <button onclick="speakInfo()">🔊 Voice Explanation</button>
+      <button onclick="stopVoice()">⏹ Stop Voice</button>
+    </div>
 
-<div class="module-card"
-onclick="showPlanet('mercury')">
-<h3>Mercury</h3>
-</div>
+    <!-- 3D VIEWER -->
 
-<div class="module-card"
-onclick="showPlanet('venus')">
-<h3>Venus</h3>
-</div>
+    <div id="viewer-section" class="hidden">
+      <button class="back-btn" onclick="closeViewer()">⬅ Back</button>
 
-<div class="module-card"
-onclick="showPlanet('earth')">
-<h3>Earth</h3>
-</div>
+      <div id="scene-container"></div>
 
-<div class="module-card"
-onclick="showPlanet('mars')">
-<h3>Mars</h3>
-</div>
+      <div class="info">
+        <h2 id="planet-title">Module</h2>
 
-<div class="module-card"
-onclick="showPlanet('jupiter')">
-<h3>Jupiter</h3>
-</div>
+        <p id="planet-info">Information</p>
+      </div>
 
-<div class="module-card"
-onclick="showPlanet('saturn')">
-<h3>Saturn</h3>
-</div>
+      <div class="quiz">
+        <h2>Quiz</h2>
 
-<div class="module-card"
-onclick="showPlanet('uranus')">
-<h3>Uranus</h3>
-</div>
+        <p id="question"></p>
 
-<div class="module-card"
-onclick="showPlanet('neptune')">
-<h3>Neptune</h3>
-</div>
+        <button onclick="checkAnswer(0)">Option 1</button>
 
-<div class="module-card"
-onclick="showPlanet('pluto')">
-<h3>Pluto</h3>
-</div>
+        <button onclick="checkAnswer(1)">Option 2</button>
 
-</div>
+        <p id="result"></p>
+      </div>
+    </div>
+    <div class="progress-box">
+      <h2>📈 Learning Progress</h2>
 
-</div>
+      <div class="progress-bar">
+        <div id="progress-fill"></div>
+      </div>
 
-<!-- PHYSICS PAGE -->
+      <p id="progress-text">0% Completed</p>
+    </div>
+    <div class="chatbot-box">
+      <h2>🤖 AI Chatbot</h2>
+      <div id="chat-messages"></div>
+      <input type="text" id="user-input" placeholder="Ask AI anything..." />
+      <button onclick="sendMessage()">Send</button>
+    </div>
 
-<div id="physics-page" class="hidden">
-
-<button class="back-btn"
-onclick="goHome()">
-
-⬅ Back
-
-</button>
-
-<h2 class="module-title">
-⚛️ Physics Lab
-</h2>
-
-<div class="modules">
-
-<div class="module-card"
-onclick="showPhysics('gravity')">
-
-<h3>Gravity Simulation</h3>
-
-</div>
-
-<div class="module-card"
-onclick="showPhysics('pendulum')">
-
-<h3>Pendulum</h3>
-
-</div>
-
-<div class="module-card"
-onclick="showPhysics('orbit')">
-
-<h3>Orbit Simulation</h3>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- BIOLOGY PAGE -->
-
-<div id="biology-page" class="hidden">
-
-<button class="back-btn"
-onclick="goHome()">
-
-⬅ Back
-
-</button>
-
-<h2 class="module-title">
-🧬 Biology Lab
-</h2>
-
-<div class="modules">
-
-<div class="module-card"
-onclick="showBiology('heart')">
-
-<h3>❤️ Heart</h3>
-
-</div>
-
-<div class="module-card"
-onclick="showBiology('brain')">
-
-<h3>🧠 Brain</h3>
-
-</div>
-
-<div class="module-card"
-onclick="showBiology('lungs')">
-
-<h3>🫁 Lungs</h3>
-
-</div>
-
-<div class="module-card"
-onclick="showBiology('cells')">
-
-<h3>🔬 Cells</h3>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- 3D VIEWER -->
-
-<div id="viewer-section"
-class="hidden">
-
-<button class="back-btn"
-onclick="closeViewer()">
-
-⬅ Back
-
-</button>
-
-<div id="scene-container"></div>
-
-<div class="info">
-
-<h2 id="planet-title">
-Module
-</h2>
-
-<p id="planet-info">
-Information
-</p>
-
-</div>
-
-<div class="quiz">
-
-<h2>
-Quiz
-</h2>
-
-<p id="question"></p>
-
-<button onclick="checkAnswer(0)">
-Option 1
-</button>
-
-<button onclick="checkAnswer(1)">
-Option 2
-</button>
-
-<p id="result"></p>
-
-</div>
-
-</div>
-
-<script src="script.js"></script>
-
-</body>
-
+    <script src="script.js"></script>
+  </body>
 </html>
